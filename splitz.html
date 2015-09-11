@@ -10,8 +10,8 @@
   <p>Each person enters one item's price per field and chooses a color.  If Person A has two items, he would enter the price and select red, and then enter the other price and select red again.  One color per person.</p>
 <div>
 
-  <div ng-repeat="price in prices" ng-model="price.amt">
-  Price:<input type="text">
+  <div ng-repeat="price in prices">
+  Price:<input type="text" ng-model="price.amt">
   <br>
   <br>
   </div>
@@ -21,7 +21,7 @@
   </div>
  
   Total Tax:<input type="text" ng-model="tax"><br>
-  <input ng-click="Submit()" type="submit" value="Submit">
+  <input ng-click="Submit()"  value="Submit">
 
 </div>
 
