@@ -9,27 +9,20 @@
 <body ng-controller="polarbearcontroller">
   <p>Each person enters one item's price per field and chooses a color.  If Person A has two items, he would enter the price and select red, and then enter the other price and select red again.  One color per person.</p>
 <div>
-<form>
-  Price:<input type="text" name="price11"  ng-model="price1" value="0">
-  <br>
-  Price:<input type="text" name="price21" ng-model="price2">
-  <br>
-  Price:<input type="text" name="price31" ng-model="price3">
-  <br>
 
-  <div  ng-show="showthis">
-    Price:<input type="text" name="price41" ng-model="price4">
-    <br></div>
-  <div  ng-show="showthis1">
-    Price:<input type="text" name="price51" ng-model="price5">
-    <br>
+  <div ng-repeat="price in prices" ng-model="price.amt">
+  Price:<input type="text">
+  <br>
+  <br>
   </div>
+  
+
   <div ng-click="Show()">Add Another Price
   </div>
  
-  Total Tax:<input type="text" name="tax" ng-model="tax"><br>
+  Total Tax:<input type="text" ng-model="tax"><br>
   <input ng-click="Submit()" type="submit" value="Submit">
-</form>
+
 </div>
 
 <div>The total is {{total | currency}}</div>

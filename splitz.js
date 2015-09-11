@@ -3,20 +3,18 @@ angular.module("bear", []);
 angular.module("bear").controller("polarbearcontroller", ["$scope", function($scope){
 	$scope.message = "Add another price";
 	//$scope.classname="forthehiddenform";
-	$scope.price1=0;
-	$scope.price2=0;
-	$scope.price3=0;
-	$scope.price4=0;
+	$scope.prices=[{amt:0}]
 	$scope.showthis=false;
 	$scope.counter=0;
-	$scope.price5=0;
 	$scope.showthis1=false;
 
 	
 	$scope.Submit = function() {
 			//event.preventDefault(); //don't need this - angular does this automatically
-		   // $scope.firstname=$scope.price1;
-		      $scope.total=Number($scope.price1) + Number($scope.price2) + Number($scope.price3) + Number($scope.price4) + Number($scope.price5) + Number($scope.tax);
+		   for (var i; i<prices.length; i++){
+		   	    if ($scope.prices[i].amt!="null")
+					$scope.total+=Number($scope.prices[i].amt) + Number($scope.tax);
+		   }
     }
 
     $scope.Show = function() {
@@ -26,7 +24,8 @@ angular.module("bear").controller("polarbearcontroller", ["$scope", function($sc
 		    	if ($scope.counter==1)
 		    		$scope.showthis1=true; 
 
-		    	$scope.counter++;   
+		    	$scope.counter++;  
+		    	$scope.prices.push({amt:0}); 
 
     }
 
